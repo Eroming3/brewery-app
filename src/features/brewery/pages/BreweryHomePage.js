@@ -1,6 +1,8 @@
 import React from 'react';
+import PropsTypes from 'prop-types';
 import { BreweryService } from '../../../services';
 import { Row, Col, Button } from 'antd';
+import { withRouter } from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBeer} from "@fortawesome/free-solid-svg-icons";
 
@@ -28,6 +30,12 @@ getBreweries = () => {
     }
   );
 }
+
+handleNavigate = (id) => {
+  // console.log(this.props.history)
+  this.props.history.push(`/details/${id}`);
+}
+
   render() {
     return (
       <div className="app-page-container mt-5">
@@ -72,7 +80,7 @@ getBreweries = () => {
                             </div>
                         </div>
                         <div className="float-right">
-                            <Button className="primary-btn">
+                            <Button className="primary-btn" onClick={() => this.handleNavigate(brewery.id)}>
                                 View Details
                             </Button>
                         </div>
@@ -84,6 +92,14 @@ getBreweries = () => {
       </div>
     )
   }
+}
+
+BreweryHomePage.propsTypes = {
+  history: PropsTypes.shape
+}
+
+BreweryHomePage.defaultProps = {
+  history: {}
 }
 
 export default BreweryHomePage;
