@@ -2,7 +2,6 @@ import React from 'react';
 import PropsTypes from 'prop-types';
 import { BreweryService } from '../../../services';
 import { Row, Col, Button } from 'antd';
-import { withRouter } from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBeer} from "@fortawesome/free-solid-svg-icons";
 
